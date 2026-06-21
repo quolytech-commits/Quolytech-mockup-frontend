@@ -1,0 +1,22 @@
+.glassCard {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.neoCard {
+  background: var(--bg-primary);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--shadow-neo);
+  transition: all 0.3s ease;
+}
+
+.neoCard.interactive:hover {
+  box-shadow: var(--shadow-neo-hover);
+  transform: translateY(-5px);
+}

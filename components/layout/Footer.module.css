@@ -1,0 +1,108 @@
+.footer {
+  background: var(--bg-white);
+  border-top: 1px solid var(--gray-100);
+  padding-top: 120px;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.ctaSection {
+  text-align: center;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--gray-100);
+  margin-bottom: 80px;
+}
+
+.ctaSection h2 {
+  margin-bottom: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  color: var(--accent-primary);
+}
+
+.brand p {
+  color: var(--text-secondary);
+}
+
+.navGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.groupTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.navGroup a {
+  color: var(--text-secondary);
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.navGroup a:hover {
+  color: var(--accent-primary);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 0;
+  border-top: 1px solid var(--gray-100);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.legalLinks a:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .brand {
+    grid-column: 1 / -1;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
