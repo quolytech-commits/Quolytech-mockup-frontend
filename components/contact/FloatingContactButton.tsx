@@ -48,7 +48,7 @@ export function FloatingContactButton() {
           <div className={styles.btnContent}>
             <span className={styles.pulseDot} />
             <MessageSquare size={18} className={styles.icon} />
-            <span className={styles.btnText}>Let's Talk</span>
+            <span className={styles.btnText}>{"Let's Talk"}</span>
           </div>
         </motion.button>
       )}

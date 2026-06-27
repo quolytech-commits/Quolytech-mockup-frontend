@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Easing } from "framer-motion";
 import Link from "next/link";
 import { GravityStarsBackground } from "../animate-ui/components/backgrounds/gravity-stars";
 import { FadeIn } from "../animations/FadeIn";
+import { AntigravityTerminal } from "./AntigravityTerminal";
 import styles from "./Sections.module.css";
 import { ArrowRight, Rocket } from "lucide-react";
 
@@ -35,47 +36,89 @@ function HeroButton({
   );
 }
 
+const titleVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    }
+  }
+};
+
+const lineVariants = {
+  hidden: { y: "115%", opacity: 0 },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      duration: 0.95,
+      ease: [0.16, 1, 0.3, 1] as unknown as Easing // Custom cubic bezier curve matching blueprint
+    }
+  }
+};
+
 export function Hero() {
   return (
     <section className={styles.hero}>
       {/* Official animate-ui gravity stars background */}
       <GravityStarsBackground
         className={styles.heroStarsBg}
-        starsCount={50}
-        starsSize={3}
-        starsOpacity={0.9}
-        movementSpeed={2}
-        mouseInfluence={100}
+        starsCount={60}
+        starsSize={2}
+        starsOpacity={0.8}
+        movementSpeed={1.5}
+        mouseInfluence={120}
         mouseGravity="attract"
-        gravityStrength={30}
-        glowIntensity={25}
+        gravityStrength={25}
+        glowIntensity={20}
         glowAnimation="ease"
       />
 
       <div className={`container ${styles.heroContainer}`}>
-        <FadeIn delay={0.1} yOffset={50}>
-          <h1 className={styles.heroTitle}>
-            Build Software That<br />
-            <span>Moves Businesses Forward</span>
-          </h1>
-        </FadeIn>
+        <div className={styles.heroContent}>
+          {/* Staggered masked reveal of text */}
+          <motion.h1
+            className={styles.heroTitle}
+            variants={titleVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <span className="block overflow-hidden relative pb-1.5">
+              <motion.span variants={lineVariants} className="block">
+                Build Software That
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden relative">
+              <motion.span variants={lineVariants} className="block">
+                <span>Moves Businesses Forward</span>
+              </motion.span>
+            </span>
+          </motion.h1>
 
-        <FadeIn delay={0.2} yOffset={20}>
-          <p className={styles.heroSubtext}>
-            We craft custom software, AI solutions, and digital experiences that drive real results.
-          </p>
-        </FadeIn>
+          <FadeIn delay={0.4} yOffset={15}>
+            <p className={styles.heroSubtext}>
+              We craft custom software, AI solutions, and digital experiences that drive real results.
+            </p>
+          </FadeIn>
 
-        <FadeIn delay={0.3} yOffset={20}>
-          <div className={styles.heroActions}>
-            <HeroButton href="/solutions" variant="primary" icon={<Rocket size={17} />}>
-              View Solutions
-            </HeroButton>
-            <HeroButton href="/portfolio" variant="secondary" icon={<ArrowRight size={17} />}>
-              View Portfolio
-            </HeroButton>
-          </div>
-        </FadeIn>
+          <FadeIn delay={0.55} yOffset={15}>
+            <div className={styles.heroActions}>
+              <HeroButton href="/solutions" variant="primary" icon={<Rocket size={17} />}>
+                View Solutions
+              </HeroButton>
+              <HeroButton href="/portfolio" variant="secondary" icon={<ArrowRight size={17} />}>
+                View Portfolio
+              </HeroButton>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Interactive Terminal Window */}
+        <div className={styles.heroVisual}>
+          <FadeIn delay={0.3} yOffset={30}>
+            <AntigravityTerminal />
+          </FadeIn>
+        </div>
       </div>
     </section>
   );

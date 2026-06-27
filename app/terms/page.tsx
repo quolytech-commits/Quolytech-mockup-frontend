@@ -24,12 +24,12 @@ export default function TermsOfServicePage() {
 
             <FadeIn delay={0.1}>
               <p>
-                Welcome to Quoly Tech. These terms and conditions outline the rules and regulations for the use of Quoly Tech's website, portals, and software development solutions.
+                Welcome to Quoly Tech. These terms and conditions outline the rules and regulations for the use of Quoly Tech&apos;s website, portals, and software development solutions.
               </p>
 
               <h2>1. Agreement to Terms</h2>
               <p>
-                By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use Quoly Tech's website if you do not agree to all of the terms and conditions stated on this page.
+                By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use Quoly Tech&apos;s website if you do not agree to all of the terms and conditions stated on this page.
               </p>
 
               <h2>2. Intellectual Property Rights</h2>
@@ -52,7 +52,7 @@ export default function TermsOfServicePage() {
 
               <h2>5. Governing Law</h2>
               <p>
-                These terms will be governed by and interpreted in accordance with the local jurisdiction's laws, and you submit to the non-exclusive jurisdiction of the state and federal courts located within our corporate headquarters' region for the resolution of any disputes.
+                These terms will be governed by and interpreted in accordance with the local jurisdiction&apos;s laws, and you submit to the non-exclusive jurisdiction of the state and federal courts located within our corporate headquarters&apos; region for the resolution of any disputes.
               </p>
             </FadeIn>
           </div>

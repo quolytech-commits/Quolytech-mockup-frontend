@@ -13,7 +13,7 @@ export function Footer() {
         <div className={styles.ctaSection}>
           <h2 className="h2">Ready to transform your business?</h2>
           <Button href="/contact" variant="primary">
-            Let's Talk <ArrowRight size={18} style={{ marginLeft: 8 }} />
+            {"Let's Talk"} <ArrowRight size={18} style={{ marginLeft: 8 }} />
           </Button>
         </div>
 

@@ -31,14 +31,12 @@ export function StrokeFillText({
   delay = 200,
 }: StrokeFillTextProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [visible, setVisible] = useState(false);
   const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !animated) {
-          setVisible(true);
           setTimeout(() => setAnimated(true), delay);
         }
       },

@@ -9,18 +9,36 @@
 }
 
 .heroContainer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  text-align: left;
   position: relative;
   z-index: 10;
-  max-width: 900px;
+  width: 100%;
+}
+
+.heroContent {
+  flex: 1.2;
+  max-width: 650px;
+}
+
+.heroVisual {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 10;
 }
 
 .heroTitle {
   margin-bottom: 24px;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  text-shadow: 0 0 40px rgba(0, 229, 255, 0.08);
 }
 
 .heroTitle span {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--accent-primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -30,10 +48,9 @@
   font-size: clamp(16px, 1.8vw, 20px);
   color: var(--text-secondary);
   margin-bottom: 48px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 550px;
   line-height: 1.7;
+  font-family: var(--font-outfit), sans-serif;
 }
 
 /* Official GravityStarsBackground positioning */
@@ -652,5 +669,26 @@
   .aiOrb {
     width: 200px;
     height: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+  }
+  .heroContent {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .heroVisual {
+    justify-content: center;
+    width: 100%;
+  }
+  .heroActions {
+    justify-content: center;
   }
 }

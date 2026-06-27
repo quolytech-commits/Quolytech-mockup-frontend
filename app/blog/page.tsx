@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FadeIn } from "@/components/animations/FadeIn";
-import { SEED_POSTS, BlogPost } from "@/lib/blog";
+import { SEED_POSTS } from "@/lib/blog";
 import styles from "./blog.module.css";
 
 export default function BlogPage() {

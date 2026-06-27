@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { NeoCard } from "@/components/cards/NeoCard";
 import { Button } from "@/components/shared/Button";
-import { Bot, Zap, BrainCircuit, FileSearch, MessageSquareText, LineChart, ArrowRight } from "lucide-react";
+import { Bot, Zap, BrainCircuit, LineChart, ArrowRight } from "lucide-react";
 import styles from "./Ai.module.css";
 
 export default function AIPage() {
@@ -56,7 +56,7 @@ export default function AIPage() {
         <div className="container" style={{ textAlign: "center" }}>
           <FadeIn>
             <h2 className="h2" style={{ marginBottom: 24 }}>Ready to integrate AI?</h2>
-            <p className="body-text" style={{ marginBottom: 40 }}>Let's discuss how AI can automate your workflows and increase your revenue.</p>
+            <p className="body-text" style={{ marginBottom: 40 }}>{"Let's discuss how AI can automate your workflows and increase your revenue."}</p>
             <Button href="/contact" variant="primary">
               Get Started <ArrowRight size={18} style={{ marginLeft: 8 }} />
             </Button>

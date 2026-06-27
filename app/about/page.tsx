@@ -5,19 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Button } from "@/components/shared/Button";
-import { 
-  Award, 
-  Sparkles, 
-  Shield, 
-  Zap, 
-  Target, 
-  ArrowRight, 
-  Globe, 
-  Mail, 
-  Users,
-  Code2,
-  LineChart
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import styles from "./About.module.css";
 
 interface CounterProps {
@@ -151,10 +139,10 @@ export default function AboutPage() {
                   <div className={styles.sectionLabel}>Our Core Mission</div>
                   <h2 className="h2">Pioneering digital scalability and architectural elegance.</h2>
                   <p className={styles.missionText}>
-                    At Quoly Tech, we believe that software shouldn't just run—it should inspire. We build resilient systems designed to adapt to massive traffic, high data loads, and evolving corporate strategies.
+                    At Quoly Tech, we believe that software shouldn&apos;t just run—it should inspire. We build resilient systems designed to adapt to massive traffic, high data loads, and evolving corporate strategies.
                   </p>
                   <p className={styles.missionHighlight}>
-                    "Our goal is to erase the gap between cutting-edge technology and actual, scalable enterprise implementation."
+                    {"\"Our goal is to erase the gap between cutting-edge technology and actual, scalable enterprise implementation.\""}
                   </p>
                 </div>
               </FadeIn>
@@ -251,7 +239,7 @@ export default function AboutPage() {
             <div className={styles.ctaContainer}>
               <h2 className="h2">Ready to Build Something Extraordinary?</h2>
               <p className="body-text">
-                Let's discuss how our design philosophy and deep technical expertise can accelerate your company's digital potential.
+                Let&apos;s discuss how our design philosophy and deep technical expertise can accelerate your company&apos;s digital potential.
               </p>
               <Button href="/contact" variant="primary">
                 Start a Project <ArrowRight size={18} style={{ marginLeft: 8 }} />

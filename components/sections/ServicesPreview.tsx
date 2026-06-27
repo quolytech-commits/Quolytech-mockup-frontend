@@ -4,7 +4,6 @@ import { NeoCard } from "../cards/NeoCard";
 import styles from "./Services.module.css";
 import { FadeIn } from "../animations/FadeIn";
 import { SectionHeading } from "../animations/SectionHeading";
-import { StrokeFillText } from "../animations/StrokeFillText";
 import { Code, Bot, MonitorSmartphone, Cloud, Layout, Cpu } from "lucide-react";
 
 export function ServicesPreview() {
