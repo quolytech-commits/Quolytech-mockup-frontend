@@ -3,6 +3,8 @@
 import { NeoCard } from "../cards/NeoCard";
 import styles from "./Services.module.css";
 import { FadeIn } from "../animations/FadeIn";
+import { SectionHeading } from "../animations/SectionHeading";
+import { StrokeFillText } from "../animations/StrokeFillText";
 import { Code, Bot, MonitorSmartphone, Cloud, Layout, Cpu } from "lucide-react";
 
 export function ServicesPreview() {
@@ -44,7 +46,7 @@ export function ServicesPreview() {
       <div className="container">
         <FadeIn>
           <div className={styles.header}>
-            <h2 className="h2">Our Expertise</h2>
+            <SectionHeading className="h2" align="center">Our Expertise</SectionHeading>
             <p className="body-text">End-to-end digital capabilities designed to elevate your brand.</p>
           </div>
         </FadeIn>

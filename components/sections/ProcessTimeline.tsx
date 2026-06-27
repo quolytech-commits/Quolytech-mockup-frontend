@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./Process.module.css";
 import { FadeIn } from "../animations/FadeIn";
+import { SectionHeading } from "../animations/SectionHeading";
 
 export function ProcessTimeline() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -60,7 +61,7 @@ export function ProcessTimeline() {
         {/* Title Header */}
         <FadeIn>
           <div className={styles.header}>
-            <h2 className="h2">Our Process</h2>
+            <SectionHeading className="h2" align="center">Our Process</SectionHeading>
             <p className="body-text">A linear roadmap toward digital transformation.</p>
           </div>
         </FadeIn>

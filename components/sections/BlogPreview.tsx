@@ -3,6 +3,7 @@
 import { NeoCard } from "../cards/NeoCard";
 import styles from "./Sections.module.css";
 import { FadeIn } from "../animations/FadeIn";
+import { SectionHeading } from "../animations/SectionHeading";
 import { Button } from "../shared/Button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -35,7 +36,7 @@ export function BlogPreview() {
         <FadeIn>
           <div className={styles.flexHeader}>
             <div>
-              <h2 className="h2">Insights & Ideas</h2>
+              <SectionHeading className="h2">Insights & Ideas</SectionHeading>
               <p className="body-text">Thoughts on engineering, design, and innovation.</p>
             </div>
             <Button href="/blog" variant="outline">

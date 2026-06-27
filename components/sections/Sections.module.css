@@ -27,18 +27,171 @@
 }
 
 .heroSubtext {
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--text-secondary);
   margin-bottom: 48px;
-  max-width: 700px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.7;
+}
+
+/* Official GravityStarsBackground positioning */
+.heroStarsBg {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  color: #4d8fff;
 }
 
 .heroActions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Wrapper holds a fixed natural size so siblings don't shift */
+.heroBtnWrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* =============================================
+   Hero Expand-on-Hover Buttons
+   ============================================= */
+.heroBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 13px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 100px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.heroBtnText {
+  /* no shift — button grows to the right */
+}
+
+.heroBtnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.25s ease;
+}
+
+.heroBtn:hover .heroBtnIcon {
+  width: 26px;
+  opacity: 1;
+}
+
+/* Primary hero button (View Solutions) */
+.heroBtnPrimary {
+  background: rgba(10, 102, 255, 0.9);
+  border-color: rgba(10, 102, 255, 0.5);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(10, 102, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.heroBtnPrimary:hover {
+  background: rgba(10, 102, 255, 1);
+  box-shadow: 0 8px 30px rgba(10, 102, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Secondary hero button (View Portfolio / Let's Talk) */
+.heroBtnSecondary {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.heroBtnSecondary:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* =============================================
+   Rainbow Button (Explore AI)
+   ============================================= */
+.rainbowBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 100px;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    #0A66FF 0%,
+    #8B5CF6 25%,
+    #EC4899 50%,
+    #F97316 75%,
+    #0A66FF 100%
+  );
+  background-size: 250% auto;
+  animation: rainbowShift 3s linear infinite;
+  box-shadow: 0 4px 20px rgba(10, 102, 255, 0.35), 0 0 40px rgba(139, 92, 246, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes rainbowShift {
+  0% { background-position: 0% center; }
+  100% { background-position: 250% center; }
+}
+
+.rainbowBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(10, 102, 255, 0.45), 0 0 50px rgba(139, 92, 246, 0.25);
+}
+
+.rainbowBtnText {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rainbowBtnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.25s ease;
+}
+
+.rainbowBtn:hover .rainbowBtnIcon {
+  width: 30px;
+  opacity: 1;
 }
 
 .bgGlow1,
@@ -96,11 +249,16 @@
 @media (max-width: 768px) {
   .heroActions {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
-  .heroActions>* {
+  .heroActions > * {
     width: 100%;
+  }
+
+  .heroBtn {
+    width: 100%;
+    justify-content: center;
   }
 
   .trustGrid {
@@ -184,30 +342,42 @@
 
 .projectImageWrapper {
   position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 24px;
-  background-color: var(--bg-white);
-  border: 1px solid var(--gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background-color: var(--gray-100);
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-.noImageText {
-  font-family: var(--font-plus-jakarta-sans), sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.projectImage {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .carouselCard:hover .projectImageWrapper {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+}
+
+.carouselCard:hover .projectImage {
+  transform: scale(1.06) !important;
+}
+
+.projectCategoryPill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: var(--accent-primary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 100px;
+  z-index: 2;
 }
 
 .orbGlow {
@@ -351,6 +521,8 @@
   height: 48px;
   border-radius: 50%;
   background: var(--gray-200);
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .authorName {

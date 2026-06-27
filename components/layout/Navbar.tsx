@@ -3,9 +3,26 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Phone } from "lucide-react";
 import styles from "./Navbar.module.css";
-import { Button } from "../shared/Button";
 import { Menu, X } from "lucide-react";
+
+function NavLetsTalkButton() {
+  return (
+    <Link href="/contact">
+      <motion.button
+        whileTap={{ scale: 0.97 }}
+        className={styles.letsTalkBtn}
+      >
+        <span className={styles.letsTalkText}>Let&apos;s Talk</span>
+        <span className={styles.letsTalkIcon}>
+          <Phone size={15} />
+        </span>
+      </motion.button>
+    </Link>
+  );
+}
 
 export function Navbar() {
   const pathname = usePathname();
@@ -49,12 +66,12 @@ export function Navbar() {
             </Link>
           ))}
           <div className={styles.mobileActions}>
-            <Button href="/contact" variant="glass">Let's Talk</Button>
+            <NavLetsTalkButton />
           </div>
         </div>
 
         <div className={styles.desktopActions}>
-          <Button href="/contact" variant="glass">Let's Talk</Button>
+          <NavLetsTalkButton />
         </div>
 
         <button 
