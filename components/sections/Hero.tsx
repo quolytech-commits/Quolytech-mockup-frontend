@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Easing } from "framer-motion";
 import Link from "next/link";
 import { AuroraBackground } from "../animations/AuroraBackground";
 import { FadeIn } from "../animations/FadeIn";
+
 import styles from "./Sections.module.css";
 import { ArrowRight, Rocket } from "lucide-react";
 
@@ -35,38 +36,73 @@ function HeroButton({
   );
 }
 
+const titleVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    }
+  }
+};
+
+const lineVariants = {
+  hidden: { y: "115%", opacity: 0 },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      duration: 0.95,
+      ease: [0.16, 1, 0.3, 1] as unknown as Easing // Custom cubic bezier curve matching blueprint
+    }
+  }
+};
+
 export function Hero() {
   return (
     <section className={styles.hero}>
-      {/* Aurora background */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
-        <AuroraBackground showRadialGradient className="absolute inset-0 w-full h-full">{null}</AuroraBackground>
-      </div>
+      {/* Official animate-ui gravity stars background */}
 
-      <div className={`container ${styles.heroContainer}`} style={{ position: 'relative', zIndex: 1 }}>
-        <FadeIn delay={0.1} yOffset={50}>
-          <h1 className={styles.heroTitle}>
-            Build Software That<br />
-            <span>Moves Businesses Forward</span>
-          </h1>
-        </FadeIn>
 
-        <FadeIn delay={0.2} yOffset={20}>
-          <p className={styles.heroSubtext}>
-            We craft custom software, AI solutions, and digital experiences that drive real results.
-          </p>
-        </FadeIn>
+      <div className={`container ${styles.heroContainer}`}>
+        <div className={styles.heroContent}>
+          {/* Staggered masked reveal of text */}
+          <motion.h1
+            className={styles.heroTitle}
+            variants={titleVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <span className="block overflow-hidden relative pb-1.5">
+              <motion.span variants={lineVariants} className="block">
+                Build Software That
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden relative">
+              <motion.span variants={lineVariants} className="block">
+                <span>Moves Businesses Forward</span>
+              </motion.span>
+            </span>
+          </motion.h1>
 
-        <FadeIn delay={0.3} yOffset={20}>
-          <div className={styles.heroActions}>
-            <HeroButton href="/solutions" variant="primary" icon={<Rocket size={17} />}>
-              View Solutions
-            </HeroButton>
-            <HeroButton href="/portfolio" variant="secondary" icon={<ArrowRight size={17} />}>
-              View Portfolio
-            </HeroButton>
-          </div>
-        </FadeIn>
+          <FadeIn delay={0.4} yOffset={15}>
+            <p className={styles.heroSubtext}>
+              We craft custom software, AI solutions, and digital experiences that drive real results.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.55} yOffset={15}>
+            <div className={styles.heroActions}>
+              <HeroButton href="/solutions" variant="primary" icon={<Rocket size={17} />}>
+                View Solutions
+              </HeroButton>
+              <HeroButton href="/portfolio" variant="secondary" icon={<ArrowRight size={17} />}>
+                View Portfolio
+              </HeroButton>
+            </div>
+          </FadeIn>
+        </div>
+
+
       </div>
     </section>
   );
