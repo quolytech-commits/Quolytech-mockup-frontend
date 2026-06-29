@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Code, Brain, Cloud, Zap } from "lucide-react";
 import styles from "./Sections.module.css";
 import { FadeIn } from "../animations/FadeIn";
 import { SectionHeading } from "../animations/SectionHeading";
 import { Button } from "../shared/Button";
+
+import Image from "next/image";
 
 export function FeaturedProjects() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -18,40 +19,37 @@ export function FeaturedProjects() {
       category: "Custom Software",
       metric: "40% increase in processing speed",
       date: "June 18, 2026",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      imageAlt: "Financial dashboard analytics",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
     },
     {
       title: "AI-Powered Customer Support",
       category: "AI Solutions",
       metric: "85% automated query resolution",
       date: "June 12, 2026",
-      image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-      imageAlt: "AI chatbot interface",
+      image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80",
     },
     {
       title: "Global E-Commerce Cloud Migration",
       category: "Cloud Solutions",
       metric: "Zero-downtime over Black Friday peak",
       date: "June 05, 2026",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-      imageAlt: "E-commerce platform on laptop",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80",
     },
     {
       title: "IoT Logistics Billing Automation",
       category: "Automation",
       metric: "-70% manual data auditing hours",
       date: "May 28, 2026",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
-      imageAlt: "Logistics warehouse automation",
-    },
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80",
+    }
   ];
 
   const handleScroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
+      const scrollAmount = 424; // Card width (400) + gap (24)
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -424 : 424,
-        behavior: "smooth",
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth"
       });
     }
   };
@@ -60,6 +58,7 @@ export function FeaturedProjects() {
     <section className={styles.featuredSection}>
       <div className="container">
 
+        {/* Header Row: Title & Top-Right View All Button */}
         <div className={styles.featuredHeader}>
           <FadeIn>
             <div>
@@ -75,6 +74,7 @@ export function FeaturedProjects() {
           </FadeIn>
         </div>
 
+        {/* Horizontal Track Carousel */}
         <div className={styles.carouselWrapper}>
           <div className={styles.carouselTrack} ref={scrollRef}>
             {projects.map((project, idx) => (
@@ -86,21 +86,12 @@ export function FeaturedProjects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
               >
-                {/* Image Block */}
-                <div className={styles.projectImageWrapper}>
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    fill
-                    sizes="400px"
-                    style={{ objectFit: "cover" }}
-                    className={styles.projectImage}
-                  />
-                  {/* Category pill overlay */}
-                  <span className={styles.projectCategoryPill}>{project.category}</span>
+                {/* Visual Image Block */}
+                <div className={styles.projectImageWrapper} style={{ position: 'relative', overflow: 'hidden' }}>
+                  <Image src={project.image} alt={project.title} fill style={{ objectFit: 'cover' }} />
                 </div>
 
-                {/* Info */}
+                {/* Info Text Block underneath (cardless text) */}
                 <div className={styles.projectInfoArea}>
                   <div className={styles.projectMetaRow}>
                     <span>{project.date}</span>
@@ -118,12 +109,23 @@ export function FeaturedProjects() {
           </div>
         </div>
 
+        {/* Bottom Left Scroll Navigation Arrows */}
         <FadeIn delay={0.2}>
           <div className={styles.carouselNav}>
-            <button type="button" className={styles.navArrow} onClick={() => handleScroll("left")} aria-label="Scroll left">
+            <button
+              type="button"
+              className={styles.navArrow}
+              onClick={() => handleScroll("left")}
+              aria-label="Scroll left"
+            >
               <ArrowLeft size={16} />
             </button>
-            <button type="button" className={styles.navArrow} onClick={() => handleScroll("right")} aria-label="Scroll right">
+            <button
+              type="button"
+              className={styles.navArrow}
+              onClick={() => handleScroll("right")}
+              aria-label="Scroll right"
+            >
               <ArrowRight size={16} />
             </button>
           </div>

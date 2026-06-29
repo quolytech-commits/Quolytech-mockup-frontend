@@ -44,10 +44,12 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: var(--accent-primary);
+  background: linear-gradient(180deg, #6366f1, #8b5cf6, #ec4899, #f97316, #eab308, #6366f1);
+  background-size: 100% 300%;
+  animation: rainbowShiftVertical 4s linear infinite;
   transform: translateX(-50%);
   border-radius: 1px;
-  box-shadow: 0 0 10px rgba(10, 102, 255, 0.5);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
   z-index: 1;
 }
 
@@ -58,6 +60,7 @@
   justify-content: space-between;
   position: relative;
   margin-bottom: 80px;
+  z-index: 2;
 }
 
 .stepRow:last-child {
@@ -102,11 +105,17 @@
   box-shadow: var(--shadow-neo);
 }
 
+.axisNodeActive {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6, #ec4899, #f97316, #eab308, #6366f1);
+  background-size: 100% 300%;
+  animation: rainbowShiftVertical 4s linear infinite;
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
 .stepRow:hover .axisNode {
-  background-color: var(--accent-primary);
-  border-color: var(--accent-primary);
-  color: var(--bg-white);
-  box-shadow: 0 0 15px rgba(10, 102, 255, 0.4);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
   transform: translateX(-50%) scale(1.08);
 }
 
@@ -149,26 +158,27 @@
 
 /* Responsive Overrides */
 @media (max-width: 768px) {
+
   .axisLine,
   .progressLine {
     left: 20px;
     transform: none;
   }
-  
+
   .stepRow {
     flex-direction: column !important;
     padding-left: 50px;
     margin-bottom: 48px;
   }
-  
+
   .contentBlock {
     width: 100%;
   }
-  
+
   .emptyBlock {
     display: none;
   }
-  
+
   .axisNode {
     left: 20px;
     top: 6px;
@@ -176,14 +186,18 @@
     height: 32px;
     font-size: 11px;
   }
-  
+
   .stepRow:hover .axisNode {
     transform: scale(1.08);
   }
-  
+
   .rowLeft .stepInfo,
   .rowRight .stepInfo {
     text-align: left;
     padding: 0;
   }
+}
+@keyframes rainbowShiftVertical {
+  0% { background-position: center 0%; }
+  100% { background-position: center 300%; }
 }

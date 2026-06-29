@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
-        
+
         <div className={styles.ctaSection}>
           <h2 className="h2">Ready to transform your business?</h2>
           <Button href="/contact" variant="primary">

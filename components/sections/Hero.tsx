@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { GravityStarsBackground } from "../animate-ui/components/backgrounds/gravity-stars";
+import { AuroraBackground } from "../animations/AuroraBackground";
 import { FadeIn } from "../animations/FadeIn";
 import styles from "./Sections.module.css";
 import { ArrowRight, Rocket } from "lucide-react";
@@ -38,21 +38,12 @@ function HeroButton({
 export function Hero() {
   return (
     <section className={styles.hero}>
-      {/* Official animate-ui gravity stars background */}
-      <GravityStarsBackground
-        className={styles.heroStarsBg}
-        starsCount={50}
-        starsSize={3}
-        starsOpacity={0.9}
-        movementSpeed={2}
-        mouseInfluence={100}
-        mouseGravity="attract"
-        gravityStrength={30}
-        glowIntensity={25}
-        glowAnimation="ease"
-      />
+      {/* Aurora background */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+        <AuroraBackground showRadialGradient className="absolute inset-0 w-full h-full">{null}</AuroraBackground>
+      </div>
 
-      <div className={`container ${styles.heroContainer}`}>
+      <div className={`container ${styles.heroContainer}`} style={{ position: 'relative', zIndex: 1 }}>
         <FadeIn delay={0.1} yOffset={50}>
           <h1 className={styles.heroTitle}>
             Build Software That<br />

@@ -46,7 +46,7 @@ export function ServicesPreview() {
       <div className="container">
         <FadeIn>
           <div className={styles.header}>
-            <SectionHeading className="h2" align="center">Our Expertise</SectionHeading>
+            <div style={{ textAlign: "center" }}><StrokeFillText className="h2">Our Expertise</StrokeFillText></div>
             <p className="body-text">End-to-end digital capabilities designed to elevate your brand.</p>
           </div>
         </FadeIn>

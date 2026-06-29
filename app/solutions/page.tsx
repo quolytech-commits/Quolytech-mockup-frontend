@@ -42,7 +42,7 @@ export default function SolutionsPage() {
 
       <section className={styles.solutionsSection}>
         <div className={styles.bgGlow} />
-        
+
         <div className="container">
           <FadeIn>
             <div className={styles.header}>

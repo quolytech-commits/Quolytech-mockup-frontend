@@ -74,8 +74,8 @@ export function Navbar() {
           <NavLetsTalkButton />
         </div>
 
-        <button 
-          className={styles.mobileMenuToggle} 
+        <button
+          className={styles.mobileMenuToggle}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >

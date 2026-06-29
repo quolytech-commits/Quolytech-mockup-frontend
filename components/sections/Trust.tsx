@@ -2,12 +2,13 @@
 
 import styles from "./Sections.module.css";
 import { FadeIn } from "../animations/FadeIn";
+import { CountUp } from "../animations/CountUp";
 
 export function Trust() {
   const metrics = [
-    { value: "50+", label: "Projects Delivered" },
-    { value: "20+", label: "Industries Served" },
-    { value: "99%", label: "Client Satisfaction" }
+    { to: 50, suffix: "+", label: "Projects Delivered" },
+    { to: 20, suffix: "+", label: "Industries Served" },
+    { to: 99, suffix: "%", label: "Client Satisfaction" }
   ];
 
   return (
@@ -17,7 +18,9 @@ export function Trust() {
           {metrics.map((metric, index) => (
             <FadeIn key={index} delay={index * 0.1}>
               <div>
-                <div className={styles.metricValue}>{metric.value}</div>
+                <div className={styles.metricValue}>
+                  <CountUp to={metric.to} suffix={metric.suffix} />
+                </div>
                 <div className={styles.metricLabel}>{metric.label}</div>
               </div>
             </FadeIn>

@@ -87,7 +87,7 @@
   .grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  
+
   .brand {
     grid-column: 1 / -1;
     margin-bottom: 32px;
@@ -99,7 +99,7 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .bottom {
     flex-direction: column;
     gap: 16px;
